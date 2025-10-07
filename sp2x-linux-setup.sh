@@ -171,10 +171,15 @@ if [[ ! -d "$GAME_DIR/spice2x" ]]; then
   mv /tmp/spice2x "$GAME_DIR/"
   rm "/tmp/$ZIP_FILE"
 
+  print_info "Copying $SPICE_EXE..."
+  cp "$GAME_DIR/spice2x/$SPICE_EXE" "$GAME_DIR/contents/"
+
   if [[ "$STUBS" -eq 1 ]]; then
     print_info "Copying nvidia stubs ($GAME_DLL_ARCH)..."
     cp "$GAME_DIR/spice2x/stubs/$GAME_DLL_ARCH/"* "$GAME_DIR/contents/modules/"
   fi
+
+  rm -r "$GAME_DIR/spice2x"
 
   print_success "spice2x installed"
 else
@@ -306,7 +311,7 @@ ARGS="-modules ../contents/modules"
 ARGS="\$ARGS \$@"
 
 cd "\$GAME_DIR/contents"
-wine "\$GAME_DIR/spice2x/$SPICE_EXE" \$ARGS
+wine "$SPICE_EXE" \$ARGS
 LAUNCHER_EOF
 chmod +x "$GAME_DIR/launch-$GAME_ID.sh"
 
