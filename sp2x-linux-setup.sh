@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # sp2x-linux-setup.sh
 # https://github.com/Notkitake/sp2x-linux-setup
 # Place this script in your game directory before running
@@ -118,8 +118,8 @@ PORTRAIT_MODE=0
 
 # Ask about portrait mode if applicable to the game
 if [[ "$GAME_PORTRAIT" -eq 1 ]]; then
-  echo ""
-  read -p "$(echo -e ${CYAN}Will you set your monitor to portrait mode before playing? [y/N]:${NC})" PORTRAIT_ANSWER
+  echo -en "\n${CYAN}Will you set your monitor to portrait mode before playing? [y/N]:${NC} "
+  read -r PORTRAIT_ANSWER
   if [[ "$PORTRAIT_ANSWER" =~ ^[Yy]$ ]]; then
     PORTRAIT_MODE=0
     print_info "Will use your native monitor orientation"
@@ -144,8 +144,8 @@ if [[ "$GAME_PORTRAIT" -eq 1 ]]; then
   fi
 fi
 
-echo ""
-read -p "$(echo -e ${CYAN}Is this correct and do you want to proceed with setup? [y/N]:${NC})" PROCEED_ANSWER
+echo -en "\n${CYAN}Is this correct and do you want to proceed with setup? [y/N]:${NC} "
+read -r PROCEED_ANSWER
 if [[ ! "$PROCEED_ANSWER" =~ ^[Yy]$ ]]; then
   print_info "Cancelling setup"
   exit 1
@@ -248,8 +248,8 @@ fi
 
 # Setup PipeWire virtual sink
 print_step "Configuring audio (PipeWire)"
-echo ""
-read -p "$(echo -e ${CYAN}Do you want to set up a PipeWire virtual sink? [Y/n]:${NC})" AUDIO_SETUP
+echo -en "\n${CYAN}Do you want to set up a PipeWire virtual sink? [Y/n]:${NC} "
+read -r AUDIO_SETUP
 AUDIO_SETUP=${AUDIO_SETUP:-Y}
 
 if [[ "$AUDIO_SETUP" =~ ^[Yy]$ ]]; then
@@ -332,8 +332,9 @@ print_info "Launching spicecfg for manual configuration..."
 echo ""
 echo "  Please configure the following:"
 echo "$GAME_INSTRUCTIONS"
-echo ""
-read -p "$(echo -e ${CYAN}Press Enter to launch spicecfg...)"
+echo -en "\n${CYAN}Press Enter to launch spicecfg..."
+# shellcheck disable=SC2162
+read
 "$SCRIPT_DIR/config-$GAME_ID.sh"
 
 # Final instructions
