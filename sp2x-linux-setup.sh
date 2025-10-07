@@ -93,7 +93,8 @@ elif [[ -f "$MODULES_DIR/soundvoltex.dll" ]]; then
 elif [[ -f "$MODULES_DIR/kamunity.dll" && -f "$GAME_DIR/contents/game/MFGClient_Data/app.info" ]]; then
   GAME_ID="mfg"
   GAME_NAME="Mahjong Fight Girl"
-  GAME_INSTRUCTIONS=""
+  GAME_INSTRUCTIONS="  1. Verify Mahjong Fight Girl is detected
+  2. Bind your game buttons"
   GAME_DLL="kamunity.dll"
 else
   print_error "No supported game detected in $MODULES_DIR"
