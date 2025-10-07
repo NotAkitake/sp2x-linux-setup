@@ -14,3 +14,4 @@ Use at your own peril!
 
 - DDR World
 - SDVX Exceed Gear
+- Mahjong Fight Girl
