@@ -288,7 +288,6 @@ EOF
 
   print_success "Virtual sink created"
   echo ""
-  print_warn "Don't forget to set 'SPICE2X' as your default audio sink!"
 fi
 
 # Create launcher scripts
