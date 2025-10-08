@@ -1,7 +1,7 @@
 # sp2x-linux-setup
 
-Experimental automated script for setting up spice2x compatible games through wine.
-Use at your own peril!
+Bash script automating spice2x compatible games setup on Linux through wine.  
+Related TWO-TORIAL guide: [Linux (Konami)](https://two-torial.xyz/extras/linux_konami/)
 
 ## Instructions
 
@@ -10,7 +10,7 @@ Use at your own peril!
 - Make it executable `chmod +x sp2x-linux-setup.sh`
 - Run it and follow instructions
 
-## "Supported" games
+## Supported games
 
 - DDR World
 - SDVX Exceed Gear
