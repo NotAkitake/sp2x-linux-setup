@@ -268,13 +268,13 @@ context.modules = [
         audio.format = S16LE
         audio.rate = 44100
         audio.channels = 2
-        node.name = spice2x
-        node.description = "SPICE2X"
+        node.name = spice2x41
+        node.description = "spice2x @ 44100Hz"
       }
       playback.props = {
         node.passive = true
-        node.name = spice2x.output
-        node.description = "SPICE2X OUTPUT"
+        node.name = spice2x41.output
+        node.description = "SPICE2X 44100Hz OUTPUT"
         target.object = "alsa_output.pci-0000_04_00.6.HiFi__hw_Generic_1__sink"
         audio.format = S16LE
       }
