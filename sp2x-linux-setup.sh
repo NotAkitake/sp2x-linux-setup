@@ -251,7 +251,6 @@ print_step "Configuring audio (PipeWire)"
 echo -en "\n${CYAN}Do you want to set up a PipeWire virtual sink? [Y/n]:${NC} "
 read -r AUDIO_SETUP
 AUDIO_SETUP=${AUDIO_SETUP:-Y}
-
 if [[ "$AUDIO_SETUP" =~ ^[Yy]$ ]]; then
   print_info "Creating PipeWire virtual sink configuration..."
   mkdir -p "$HOME/.config/pipewire/pipewire.conf.d"
@@ -286,7 +285,6 @@ EOF
   systemctl --user restart pipewire.service pipewire-pulse.socket
 
   print_success "Virtual sink created"
-  echo ""
 fi
 
 # Create launcher scripts
@@ -337,7 +335,6 @@ read
 
 # Final instructions
 print_header "Setup Complete!"
-echo ""
 print_success "$GAME_NAME should now be ready to play!"
 echo ""
 echo "To launch the game: run launch-$GAME_ID.sh"
