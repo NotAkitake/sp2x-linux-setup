@@ -322,6 +322,37 @@ chmod +x "$GAME_DIR/config-$GAME_ID.sh"
 
 print_success "Launcher scripts created"
 
+# Desktop entries
+print_step "Desktop entries"
+echo -en "\n${CYAN}Do you want to create desktop entries to play and configure $GAME_NAME? [Y/n]:${NC} "
+read -r DESKTOP_ENTRIES
+DESKTOP_ENTRIES=${DESKTOP_ENTRIES:-Y}
+if [[ "$DESKTOP_ENTRIES" =~ ^[Yy]$ ]]; then
+  print_info "Creating '$GAME_NAME' entry ($HOME/.local/share/applications/$GAME_ID.desktop)..."
+  cat >"$HOME/.local/share/applications/$GAME_ID.desktop" <<EOF
+[Desktop Entry]
+Type=Application
+Categories=Game;ArcadeGame;
+Icon=applications-games
+Name=$GAME_NAME
+Comment=Play $GAME_NAME
+Exec=$SCRIPT_DIR/launch-$GAME_ID.sh
+Terminal=true
+EOF
+  print_info "Creating '$GAME_NAME (cfg)' entry ($HOME/.local/share/applications/$GAME_ID-cfg.desktop)..."
+  cat >"$HOME/.local/share/applications/$GAME_ID-cfg.desktop" <<EOF
+[Desktop Entry]
+Type=Application
+Categories=Game;ArcadeGame;
+Icon=applications-games
+Name=$GAME_NAME (cfg)
+Comment=Configure $GAME_NAME
+Exec=$SCRIPT_DIR/config-$GAME_ID.sh
+Terminal=true
+EOF
+  print_success "Desktop entries created!"
+fi
+
 # Configure spice2x
 print_step "Configuring spice2x"
 print_info "Launching spicecfg for manual configuration..."
@@ -339,7 +370,13 @@ print_success "$GAME_NAME should now be ready to play!"
 echo ""
 echo "To launch the game: run launch-$GAME_ID.sh"
 echo "To launch spicecfg: run config-$GAME_ID.sh"
+if [[ "$DESKTOP_ENTRIES" =~ ^[Yy]$ ]]; then
+  echo "Or use the desktop entries that were created!"
+fi
 echo ""
+if [[ "$DESKTOP_ENTRIES" =~ ^[Yy]$ ]]; then
+  print_warn "Desktop entries may not appear in your menus until you reboot or run a command such as kbuildsycoca6 on KDE!"
+fi
 if [[ "$AUDIO_SETUP" =~ ^[Yy]$ ]]; then
   print_warn "Remember to set the new spice2x sink as your default audio device before starting the game!"
 fi
