@@ -293,7 +293,7 @@ fi
 # Create launcher scripts
 print_step "Creating launcher scripts"
 cat >"$GAME_DIR/launch-$GAME_ID.sh" <<LAUNCHER_EOF
-#!/bin/bash
+#!/usr/bin/env bash
 # $GAME_NAME - Game Launcher
 
 GAME_DIR="$GAME_DIR"
@@ -308,15 +308,15 @@ ARGS=""
 # ARGS="\$ARGS -p 01FXXXXXXXXXXXXXXXXX" # PCBID
 
 # Append args to this script
-ARGS="\$ARGS \$@"
+ARGS="\$ARGS \$*"
 
-cd "\$GAME_DIR/contents"
+cd "\$GAME_DIR/contents" || exit
 wine "$SPICE_EXE" \$ARGS
 LAUNCHER_EOF
 chmod +x "$GAME_DIR/launch-$GAME_ID.sh"
 
 cat >"$GAME_DIR/config-$GAME_ID.sh" <<LAUNCHER_EOF
-#!/bin/bash
+#!/usr/bin/env bash
 # $GAME_NAME - Config Launcher
 
 "$GAME_DIR/launch-$GAME_ID.sh" -cfg
