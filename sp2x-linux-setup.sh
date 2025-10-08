@@ -253,7 +253,6 @@ read -r AUDIO_SETUP
 AUDIO_SETUP=${AUDIO_SETUP:-Y}
 
 if [[ "$AUDIO_SETUP" =~ ^[Yy]$ ]]; then
-  # Detect audio output device
   print_info "Creating PipeWire virtual sink configuration..."
   mkdir -p "$HOME/.config/pipewire/pipewire.conf.d"
 
