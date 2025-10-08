@@ -345,6 +345,6 @@ echo "To launch the game: run launch-$GAME_ID.sh"
 echo "To launch spicecfg: run config-$GAME_ID.sh"
 echo ""
 if [[ "$AUDIO_SETUP" =~ ^[Yy]$ ]]; then
-  print_warn "Remember to set 'SPICE2X' as your default audio sink!"
+  print_warn "Remember to set the new spice2x sink as your default audio device before starting the game!"
 fi
 echo ""
