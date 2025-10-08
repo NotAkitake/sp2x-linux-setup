@@ -43,7 +43,7 @@ command -v unzip &>/dev/null || MISSING_TOOLS+=("unzip")
 
 if [[ ${#MISSING_TOOLS[@]} -ne 0 ]]; then
   print_error "Missing required tools: ${MISSING_TOOLS[*]}"
-  echo "  Install with: sudo pacman -S ${MISSING_TOOLS[*]} (Arch/Manjaro)"
+  echo "  Install with: sudo pacman -S ${MISSING_TOOLS[*]} (Arch)"
   echo "            or: sudo apt install ${MISSING_TOOLS[*]} (Debian/Ubuntu)"
   echo "            or: sudo dnf install ${MISSING_TOOLS[*]} (Fedora/RHEL)"
   exit 1
