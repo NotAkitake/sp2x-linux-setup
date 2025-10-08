@@ -257,7 +257,7 @@ if [[ "$AUDIO_SETUP" =~ ^[Yy]$ ]]; then
   print_info "Creating PipeWire virtual sink configuration..."
   mkdir -p "$HOME/.config/pipewire/pipewire.conf.d"
 
-  cat >"$HOME/.config/pipewire/pipewire.conf.d/virtual-sink.conf" <<EOF
+  cat >"$HOME/.config/pipewire/pipewire.conf.d/spice2x-sink.conf" <<EOF
 context.modules = [
   {
     name = libpipewire-module-loopback
