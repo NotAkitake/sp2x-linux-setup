@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# sp2x-linux-setup.sh
+# sp2x-linux-setup.sh (2025-10-08)
 # https://github.com/Notkitake/sp2x-linux-setup
 # Place this script in your game directory before running
 # OR export GAME_DIR with your game directory (the one containing the contents directory)
