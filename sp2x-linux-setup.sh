@@ -301,7 +301,7 @@ export WINEARCH=win64
 export WINEPREFIX="\$GAME_DIR/prefix"
 
 # Default arguments
-ARGS="-modules ../contents/modules"
+ARGS=""
 
 # Optional: Add arguments
 # ARGS="\$ARGS -url localhost:8083"     # Network URL
