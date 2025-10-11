@@ -359,7 +359,7 @@ print_info "Launching spicecfg for manual configuration..."
 echo ""
 echo "  Please configure the following:"
 echo "$GAME_INSTRUCTIONS"
-echo -en "\n${CYAN}Press Enter to launch spicecfg..."
+echo -en "\n${CYAN}Press Enter to launch spicecfg...${NC}"
 # shellcheck disable=SC2162
 read
 "$SCRIPT_DIR/config-$GAME_ID.sh"
