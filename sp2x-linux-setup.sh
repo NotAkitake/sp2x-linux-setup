@@ -336,7 +336,7 @@ Categories=Game;ArcadeGame;
 Icon=applications-games
 Name=$GAME_NAME
 Comment=Play $GAME_NAME
-Exec=$SCRIPT_DIR/launch-$GAME_ID.sh
+Exec=$GAME_DIR/launch-$GAME_ID.sh
 Terminal=true
 EOF
   print_info "Creating '$GAME_NAME (cfg)' entry ($HOME/.local/share/applications/$GAME_ID-cfg.desktop)..."
@@ -347,7 +347,7 @@ Categories=Game;ArcadeGame;
 Icon=applications-games
 Name=$GAME_NAME (cfg)
 Comment=Configure $GAME_NAME
-Exec=$SCRIPT_DIR/config-$GAME_ID.sh
+Exec=$GAME_DIR/config-$GAME_ID.sh
 Terminal=true
 EOF
   print_success "Desktop entries created!"
@@ -362,7 +362,7 @@ echo "$GAME_INSTRUCTIONS"
 echo -en "\n${CYAN}Press Enter to launch spicecfg..."
 # shellcheck disable=SC2162
 read
-"$SCRIPT_DIR/config-$GAME_ID.sh"
+"$GAME_DIR/config-$GAME_ID.sh"
 
 # Final instructions
 print_header "Setup Complete!"
